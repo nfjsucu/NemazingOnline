@@ -1,0 +1,29 @@
+<div class="roulette-game">
+  <h1 class="roulette-game__title">{{ title }}</h1>
+  <p class="roulette-game__subtitle">Сделайте ставку и крутите колесо фортуны. Удача на твоей стороне!</p>
+
+  <div class="roulette-game__stage">
+    <canvas #canvas class="roulette-game__canvas"></canvas>
+  </div>
+
+  <div class="roulette-game__panel">
+    <div class="roulette-game__balance">
+      <span class="roulette-game__balance-label">Баланс</span>
+      <span class="roulette-game__balance-value">{{ balance }} NMZ</span>
+    </div>
+
+    <div class="roulette-game__bets">
+      <button type="button" *ngFor="let b of [50, 100, 500, 1000]" [class.active]="bet === b" (click)="setBet(b)">{{ b }}</button>
+    </div>
+
+    <button type="button" class="roulette-game__spin" [disabled]="spinning || balance < bet" (click)="spin()">
+      {{ spinning ? 'Крутим...' : 'КРУТИТЬ (' + bet + ' NMZ)' }}
+    </button>
+
+    <div class="roulette-game__result" *ngIf="result">{{ result }}</div>
+
+    <button type="button" class="roulette-game__reset" [disabled]="spinning" (click)="resetBalance()">Сбросить баланс</button>
+  </div>
+
+  <a class="roulette-game__back" routerLink="/">← На главную</a>
+</div>

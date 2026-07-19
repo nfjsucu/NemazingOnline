@@ -1,0 +1,45 @@
+import { Routes } from '@angular/router';
+import { HomePageComponent } from './pages/home.component';
+import { StartPageComponent } from './pages/start.component';
+import { PromoVideoPageComponent } from './pages/promo-video.component';
+import { TournamentsPageComponent } from './pages/tournaments.component';
+import { NewsPageComponent } from './pages/news.component';
+import { HelpPageComponent } from './pages/help.component';
+import { DonatePageComponent } from './pages/donate.component';
+import { RulesPageComponent } from './pages/rules.component';
+import { SuggestionsPageComponent } from './pages/suggestions.component';
+import { TopPageComponent } from './pages/top.component';
+import { MiniFreePageComponent } from './pages/mini-free.component';
+import { MiniGoldPageComponent } from './pages/mini-gold.component';
+import { MiniBrilliantPageComponent } from './pages/mini-brilliant.component';
+import { MyPageComponent } from './pages/my.component';
+import { MyAudioPageComponent } from './pages/my-audio.component';
+import { MyCheatPageComponent } from './pages/my-cheat.component';
+import { MyComplaintsPageComponent } from './pages/my-complaints.component';
+import { MyGoldPageComponent } from './pages/my-gold.component';
+import { MyInventoryPageComponent } from './pages/my-inventory.component';
+import { MySettingsPageComponent } from './pages/my-settings.component';
+
+export const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'start', component: StartPageComponent },
+  { path: 'promo-video', component: PromoVideoPageComponent },
+  { path: 'tournaments', component: TournamentsPageComponent },
+  { path: 'news', component: NewsPageComponent },
+  { path: 'help', component: HelpPageComponent },
+  { path: 'donate', component: DonatePageComponent },
+  { path: 'rules', component: RulesPageComponent },
+  { path: 'suggestions', component: SuggestionsPageComponent },
+  { path: 'top', component: TopPageComponent },
+  { path: 'games/mini/free', component: MiniFreePageComponent },
+  { path: 'games/mini/gold', component: MiniGoldPageComponent },
+  { path: 'games/mini/brilliant', component: MiniBrilliantPageComponent },
+  { path: 'my', component: MyPageComponent },
+  { path: 'my/audio', component: MyAudioPageComponent },
+  { path: 'my/cheat', component: MyCheatPageComponent },
+  { path: 'my/complaints', component: MyComplaintsPageComponent },
+  { path: 'my/gold', component: MyGoldPageComponent },
+  { path: 'my/inventory', component: MyInventoryPageComponent },
+  { path: 'my/settings', component: MySettingsPageComponent },
+  { path: '**', redirectTo: '' }
+];
