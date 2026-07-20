@@ -4,6 +4,12 @@ const bcrypt = require('bcryptjs');
 
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'nemazing.json');
 
+try {
+  fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
+} catch (e) {
+  /* ignore */
+}
+
 const DEFAULT_ITEMS = [
   { name: 'Автомобиль: Phoenix', icon: '🚗', price: 150 },
   { name: 'Дом: Вилла у озера', icon: '🏠', price: 400 },
