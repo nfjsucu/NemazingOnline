@@ -18,7 +18,7 @@ export class ApiService {
       ? (import.meta as any).env?.['NG_APP_API_URL']
       : (typeof window !== 'undefined' && (window as any).__NEMAZING_API__)
         ? (window as any).__NEMAZING_API__
-        : '';
+        : 'https://nemazingonline-nemazingonline.up.railway.app';
 
 
   constructor(private http: HttpClient) {}
