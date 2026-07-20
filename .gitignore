@@ -52,3 +52,10 @@ server/nemazing.db*
 # env
 .env
 
+
+# Server deps and runtime data
+server/node_modules/
+server/nemazing.json
+server/nemazing.db*
+.env
+
