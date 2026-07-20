@@ -12,6 +12,7 @@ import { AuthUiService } from '../services/auth-ui.service';
   standalone: true,
   imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './donate.component.html',
+  styleUrl: './donate.component.scss',
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class DonatePageComponent implements OnInit {

@@ -1,0 +1,228 @@
+:host {
+  display: block;
+  color: #fff;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+.nemazing-donate {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.donate-title {
+  font-size: 34px;
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.donate-section-title {
+  font-size: 22px;
+  margin: 28px 0 14px;
+}
+
+.donate-exchange {
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.donate-exchange-title {
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+
+.donate-exchange-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.donate-exchange-item {
+  border-radius: 10px;
+  padding: 16px;
+  color: #fff;
+}
+
+.donate-exchange-item:nth-child(1) {
+  background: linear-gradient(90deg, #df2a2a 0%, #c51313 100%);
+}
+
+.donate-exchange-item:nth-child(2) {
+  background: linear-gradient(90deg, #17609f 0%, #308dd1 100%);
+}
+
+.donate-exchange-item:nth-child(3) {
+  background: linear-gradient(90deg, #238d3d 0%, #41ba5e 100%);
+}
+
+.donate-exchange-name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.donate-exchange-price {
+  opacity: .9;
+  margin-top: 6px;
+}
+
+.donate-pricelist {
+  margin-top: 18px;
+}
+
+.donate-pricelist-title {
+  font-weight: 700;
+}
+
+.donate-pricelist-desc {
+  opacity: .8;
+  margin-top: 4px;
+}
+
+.donate-servers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.donate-server {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, .18);
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.donate-server:hover {
+  background: rgba(255, 255, 255, .14);
+}
+
+.donate-bonus-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.donate-bonus-item {
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.donate-bonus-plus {
+  font-weight: 800;
+  color: #ffd24a;
+  font-size: 18px;
+}
+
+.donate-note {
+  opacity: .8;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.nemazing-donate-panel {
+  margin-top: 28px;
+  padding: 24px;
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+}
+
+.donate-balance {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.donate-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.donate-package {
+  border: none;
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(90deg, #c51313 0%, #df2a2a 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.donate-package:hover {
+  filter: brightness(1.1);
+}
+
+.donate-package-amount {
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.donate-package-buy {
+  opacity: .9;
+}
+
+.donate-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.donate-modal-box {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 380px;
+  width: 90%;
+}
+
+.donate-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.donate-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, .2);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.donate-btn-primary {
+  background: linear-gradient(90deg, #c51313 0%, #df2a2a 100%);
+  border: none;
+}
+
+.donate-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #238d3d;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  z-index: 101;
+}
+
+.donate-toast-warn {
+  background: #c51313;
+}
