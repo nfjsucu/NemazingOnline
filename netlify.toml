@@ -1,5 +1,9 @@
 [build]
+  command = "npm install && ng build"
   publish = "dist/amazing-clone/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [[redirects]]
   from = "/*"
