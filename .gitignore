@@ -45,3 +45,10 @@ Thumbs.db
 serve.log
 snapshot-index.html
 ngcmd-*.log
+
+# Server runtime data
+server/nemazing.json
+server/nemazing.db*
+# env
+.env
+

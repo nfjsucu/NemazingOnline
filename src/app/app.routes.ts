@@ -12,6 +12,8 @@ import { TopPageComponent } from './pages/top.component';
 import { MiniFreePageComponent } from './pages/mini-free.component';
 import { MiniGoldPageComponent } from './pages/mini-gold.component';
 import { MiniBrilliantPageComponent } from './pages/mini-brilliant.component';
+import { CoinflipPageComponent } from './pages/coinflip.component';
+import { DicePageComponent } from './pages/dice.component';
 import { MyPageComponent } from './pages/my.component';
 import { MyAudioPageComponent } from './pages/my-audio.component';
 import { MyCheatPageComponent } from './pages/my-cheat.component';
@@ -34,6 +36,8 @@ export const routes: Routes = [
   { path: 'games/mini/free', component: MiniFreePageComponent },
   { path: 'games/mini/gold', component: MiniGoldPageComponent },
   { path: 'games/mini/brilliant', component: MiniBrilliantPageComponent },
+  { path: 'games/coinflip', component: CoinflipPageComponent },
+  { path: 'games/dice', component: DicePageComponent },
   { path: 'my', component: MyPageComponent },
   { path: 'my/audio', component: MyAudioPageComponent },
   { path: 'my/cheat', component: MyCheatPageComponent },

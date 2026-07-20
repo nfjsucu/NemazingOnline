@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { BalanceService } from './balance.service';
+import { AuthService } from './auth.service';
+import { ApiService } from './auth.service';
 
 export interface InventoryItem {
   id: number;
@@ -21,21 +22,50 @@ const DEFAULT_ITEMS: InventoryItem[] = [
 
 @Injectable({ providedIn: 'root' })
 export class InventoryService {
+  private auth = inject(AuthService);
+  private api = inject(ApiService);
   private items$ = new BehaviorSubject<InventoryItem[]>(this.load());
 
   readonly items = this.items$.asObservable();
 
-  constructor(private balance: BalanceService) {}
+  constructor() {
+    const token = this.auth.currentToken;
+    if (token) this.refresh(token);
+    this.auth.token.subscribe((t) => {
+      if (t) this.refresh(t);
+    });
+  }
 
   get list(): InventoryItem[] {
     return this.items$.value;
   }
 
+  refresh(token: string): void {
+    this.api.getInventory(token).subscribe({
+      next: (r: any) => {
+        if (r.items && r.items.length) {
+          this.items$.next(r.items);
+          this.save(r.items);
+        }
+      },
+      error: () => {},
+    });
+  }
+
   sell(item: InventoryItem): void {
-    const next = this.list.filter(i => i.id !== item.id);
-    this.items$.next(next);
-    this.balance.add(item.price);
-    this.save(next);
+    const token = this.auth.currentToken;
+    if (token) {
+      this.api.sellItem(token, item.id).subscribe({
+        next: (r: any) => {
+          this.items$.next(this.list.filter((i) => i.id !== item.id));
+          this.save(this.list);
+        },
+        error: () => {},
+      });
+    } else {
+      this.items$.next(this.list.filter((i) => i.id !== item.id));
+      this.save(this.list);
+    }
   }
 
   private load(): InventoryItem[] {

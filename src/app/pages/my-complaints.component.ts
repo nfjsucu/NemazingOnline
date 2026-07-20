@@ -2,6 +2,9 @@
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { inject } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { ApiService } from '../services/auth.service';
 
 interface Complaint {
   id: number;
@@ -24,21 +27,49 @@ export class MyComplaintsPageComponent implements OnInit {
   lastId = 0;
   list: Complaint[] = [];
 
+  private auth = inject(AuthService);
+  private api = inject(ApiService);
+
   ngOnInit(): void {
-    this.list = this.load();
+    const token = this.auth.currentToken;
+    if (token) {
+      this.api.getComplaints(token).subscribe({
+        next: (r: any) => {
+          this.list = r.items.map((c: any) => ({ id: c.id, text: c.text, date: c.createdAt || '' }));
+        },
+        error: () => (this.list = this.load()),
+      });
+    } else {
+      this.list = this.load();
+    }
   }
 
   submit(): void {
     const t = this.text.trim();
     if (!t) return;
-    const id = this.list.length ? Math.max(...this.list.map(c => c.id)) + 1 : 1;
-    const complaint: Complaint = {
-      id,
-      text: t,
-      date: new Date().toLocaleString('ru-RU')
-    };
+    const token = this.auth.currentToken;
+    if (token) {
+      this.api.addComplaint(token, t).subscribe({
+        next: (r: any) => {
+          this.list = [{ id: r.item.id, text: r.item.text, date: r.item.createdAt }, ...this.list];
+          this.afterSubmit(r.item.id);
+        },
+        error: () => this.localSubmit(t),
+      });
+    } else {
+      this.localSubmit(t);
+    }
+  }
+
+  private localSubmit(t: string): void {
+    const id = this.list.length ? Math.max(...this.list.map((c) => c.id)) + 1 : 1;
+    const complaint: Complaint = { id, text: t, date: new Date().toISOString() };
     this.list = [complaint, ...this.list];
     this.save(this.list);
+    this.afterSubmit(id);
+  }
+
+  private afterSubmit(id: number): void {
     this.lastId = id;
     this.done = true;
     this.text = '';

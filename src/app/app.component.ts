@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject, NgZone, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthModalComponent } from './components/auth-modal.component';
+import { AuthUiService } from './services/auth-ui.service';
+import { SeoService } from './services/seo.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  template: '<router-outlet></router-outlet>'
+  imports: [RouterOutlet, AuthModalComponent],
+  template: '<router-outlet></router-outlet><app-auth-modal></app-auth-modal>'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'nemazing-clone';
+  private ui = inject(AuthUiService);
+  private zone = inject(NgZone);
+  private seo = inject(SeoService);
+
+  ngAfterViewInit(): void {
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.sign-in') || target.closest('.navigation-authorization-login-button')) {
+        e.preventDefault();
+        this.zone.run(() => this.ui.open());
+      }
+    });
+  }
 }
