@@ -8,7 +8,8 @@ import { SeoService } from './services/seo.service';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, AuthModalComponent],
-  template: '<router-outlet></router-outlet><app-auth-modal></app-auth-modal>'
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements AfterViewInit {
   title = 'nemazing-clone';

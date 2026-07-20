@@ -1,0 +1,18 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, .55);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.site-logo-link {
+  display: inline-flex;
+}
+
+.site-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+}

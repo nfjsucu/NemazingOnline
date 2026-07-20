@@ -7,6 +7,7 @@ import { NewsPageComponent } from './pages/news.component';
 import { HelpPageComponent } from './pages/help.component';
 import { DonatePageComponent } from './pages/donate.component';
 import { RulesPageComponent } from './pages/rules.component';
+import { SystemRequirementsPageComponent } from './pages/system-requirements.component';
 import { SuggestionsPageComponent } from './pages/suggestions.component';
 import { TopPageComponent } from './pages/top.component';
 import { MiniFreePageComponent } from './pages/mini-free.component';
@@ -31,6 +32,7 @@ export const routes: Routes = [
   { path: 'help', component: HelpPageComponent },
   { path: 'donate', component: DonatePageComponent },
   { path: 'rules', component: RulesPageComponent },
+  { path: 'system-requirements', component: SystemRequirementsPageComponent },
   { path: 'suggestions', component: SuggestionsPageComponent },
   { path: 'top', component: TopPageComponent },
   { path: 'games/mini/free', component: MiniFreePageComponent },

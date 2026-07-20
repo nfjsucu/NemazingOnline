@@ -1,2 +1,1082 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== Nemazing dark theme (minimal) ===== */
+:root {
+  --nz-bg: #0f1020;
+  --nz-bg-soft: #1a1b30;
+  --nz-bg-card: #161728;
+  --nz-text: #e8e8f0;
+  --nz-text-dim: #a9a9c0;
+  --nz-border: rgba(255, 255, 255, 0.08);
+  --nz-accent: #451bde;
+  --nz-accent-2: #7b2ff7;
+}
 
+html,
+body {
+  background-color: var(--nz-bg) !important;
+  color: var(--nz-text) !important;
+}
+
+* {
+  color: var(--nz-text);
+}
+
+/* Fallback: any element that still has a light inline background gets a dark one
+   so white text never blends in */
+*[style*="background:#fff"],
+*[style*="background:#f"],
+*[style*="background-color:#fff"],
+*[style*="background-color:#f"],
+*[style*="background: #fff"],
+*[style*="background-color: #fff"] {
+  background-color: var(--nz-bg-soft) !important;
+  color: var(--nz-text) !important;
+}
+
+/* Force dark backgrounds for the original clone's light blocks so white text
+   never blends in. Cover common hex variants. */
+[class*="ng-"],
+app-root,
+.app-rules-content,
+.app-banner,
+.banner,
+.index-event-about-wrapper,
+blockquote,
+table,
+td,
+th,
+.app-footer,
+#page-footer {
+  background-color: var(--nz-bg-soft) !important;
+  color: var(--nz-text) !important;
+}
+
+/* Any remaining light background -> dark (covers hex written in CSS files) */
+[style*="#fff"],
+[style*="#fcfcfc"],
+[style*="#f9f9f9"],
+[style*="#f8f8f8"],
+[style*="#fafafa"],
+[style*="#f7f7f7"],
+[style*="#eaeaea"],
+[style*="#ededed"],
+[style*="#e8e8e8"],
+[style*="#f0f0f0"] {
+  background-color: var(--nz-bg-soft) !important;
+  color: var(--nz-text) !important;
+}
+
+/* Neutralize light backgrounds from the original clone styles */
+[class*="ng-"],
+app-root,
+.app-rules-content,
+blockquote,
+table,
+td,
+th {
+  color: var(--nz-text);
+}
+
+/* Light blocks -> dark cards */
+[style*="background-color:#f9f9f9"],
+[style*="background-color: #f9f9f9"],
+[style*="background-color:#fcfcfc"],
+[style*="background-color:#f8f8f8"],
+[style*="background-color:#eaeaea"],
+[style*="background-color:#f7f7f7"],
+[style*="background-color:#fafafa"],
+.banner,
+.app-banner,
+.index-event-about-wrapper,
+.app-rules-content table,
+blockquote {
+  background-color: var(--nz-bg-soft) !important;
+  color: var(--nz-text) !important;
+  border-color: var(--nz-border) !important;
+}
+
+/* Tables */
+table[border] {
+  border-collapse: collapse;
+  background-color: var(--nz-bg-card) !important;
+  color: var(--nz-text) !important;
+}
+
+table[border] th,
+table[border] td {
+  border: 1px solid var(--nz-border) !important;
+  background-color: var(--nz-bg-card) !important;
+  color: var(--nz-text) !important;
+  padding: 8px 10px;
+}
+
+/* Keep links readable */
+a {
+  color: var(--nz-text) !important;
+}
+
+/* Soften the bright purple/blue banners to fit dark theme */
+.app-banner,
+.banner {
+  background-color: var(--nz-bg) !important;
+}
+
+/* Inputs / selects readability */
+input,
+select,
+textarea,
+button {
+  background-color: var(--nz-bg-soft) !important;
+  color: var(--nz-text) !important;
+  border: 1px solid var(--nz-border) !important;
+}
+
+/* Footer text */
+#page-footer,
+.app-footer,
+.footer-logo-img {
+  background-color: var(--nz-bg) !important;
+  color: var(--nz-text) !important;
+}
+
+/* Donate / custom panels */
+.nemazing-donate,
+.nemazing-donate-panel,
+.donate-exchange,
+.donate-pricelist,
+.donate-bonus-item,
+.donate-server,
+.donate-package {
+  color: var(--nz-text) !important;
+}
+
+/* ===== "СКАЧАТЬ ИГРУ" button: site-theme purple/blue flowing gradient ===== */
+.step-footer,
+.download-button,
+[_nghost-agg-crmp-webfront-c2356339609] .step-footer[_ngcontent-agg-crmp-webfront-c2356339609],
+[_nghost-agg-crmp-webfront-c2356339609] .download-button[_ngcontent-agg-crmp-webfront-c2356339609] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 42px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff !important;
+  background: linear-gradient(90deg, #451bde, #7b2ff7, #1b2a6b, #7b2ff7, #451bde) !important;
+  background-size: 300% 100% !important;
+  animation: nz-flow 6s linear infinite;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 10px 30px rgba(123, 47, 247, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.step-footer:hover,
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(123, 47, 247, 0.6);
+}
+
+@keyframes nz-flow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Generic CTA buttons: dark-blue <-> white flowing gradient */
+.donate-package,
+.donate-btn-primary,
+.active-button-block,
+.donate-server,
+.navigation-item.cta,
+.sign-in {
+  color: #fff !important;
+  background: linear-gradient(90deg, #0f1020, #1b2a6b, #ffffff, #1b2a6b, #0f1020) !important;
+  background-size: 300% 100% !important;
+  animation: nz-flow 7s linear infinite;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Keep pure text nav items calm (no animation) */
+.navigation-item:not(.cta) {
+  background: transparent !important;
+  animation: none !important;
+}
+
+/* ===== Logo banner: "Nemazing [image] Online" ===== */
+.nz-logo-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 24px auto 0;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+
+.nz-logo-word {
+  font-family: 'Orbitron', 'Russo One', Montserrat, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 114px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1;
+  background: linear-gradient(90deg, #ffffff, #7b2ff7, #451bde, #ffffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nz-flow 8s linear infinite;
+  text-shadow: 0 0 24px rgba(123, 47, 247, 0.35);
+}
+
+.nz-logo-word--left {
+  text-align: right;
+  transform: translate(-1000px, -200px);
+}
+
+.nz-logo-word--right {
+  text-align: left;
+  transform: translate(600px, -200px);
+}
+
+.nz-logo-img {
+  height: 120px;
+  width: auto;
+  border-radius: 14px;
+  filter: drop-shadow(0 8px 24px rgba(69, 27, 222, 0.4));
+}
+
+/* place the words around the already-existing character picture */
+.nz-char-logo {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .nz-logo-word { font-size: 40px; }
+  .nz-logo-img { height: 80px; }
+}
+
+/* ===== Hero title banner on home page ===== */
+.nz-hero-title {
+  width: 100%;
+  background: #0f1020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 22px 28px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nz-hero-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.nz-hero-nav-right {
+  justify-content: flex-end;
+}
+
+.nz-hero-link {
+  color: #fff !important;
+  text-decoration: none;
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nz-hero-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.nz-hero-link:hover {
+  opacity: 1;
+}
+
+/* Hide the lower default navigation menu on the home page */
+app-navigation,
+.navigation,
+#site-navigator {
+  display: none !important;
+}
+
+.nz-hero-text {
+  display: none !important;
+  color: #fff;
+  font-family: 'Orbitron', 'Russo One', Montserrat, Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 4px;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  font-size: 56px;
+  background: linear-gradient(90deg, #ffffff, #7b2ff7, #451bde, #ffffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nz-flow 8s linear infinite;
+  text-shadow: 0 0 24px rgba(123, 47, 247, 0.45);
+}
+
+@media (max-width: 900px) {
+  .nz-hero-title {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nz-hero-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nz-hero-text {
+    font-size: 38px;
+  }
+}
+
+/* ===== Home: full dark-blue interface ===== */
+app-root {
+  display: block;
+  min-height: 100vh;
+  background: #0f1020 !important;
+}
+
+/* Whole-site dark-blue background: catch any remaining light surfaces */
+html,
+body,
+[class*="ng-"],
+.app-layout,
+.app-rules,
+.app-rules-content,
+.app-footer,
+#page-footer,
+.banner,
+.app-banner,
+.index-event-about-wrapper,
+.nemazing-donate,
+.nemazing-donate-panel {
+  background-color: #0f1020 !important;
+}
+
+/* ===== "Как начать играть" custom block (plain, like other homepage sections) ===== */
+.nz-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 60px;
+  margin: 460px 30px 80px 20px;
+  max-width: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.nz-start__media {
+  flex: 0 0 62%;
+  min-width: 0;
+}
+
+.nz-start__content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 420px;
+}
+
+.nz-start__media {
+  flex: 1 1 50%;
+  min-width: 0;
+}
+
+.nz-start__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.nz-start__content {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.nz-start__title {
+  font-family: 'Orbitron', 'Russo One', Montserrat, Arial, sans-serif;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.nz-start__text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #c9c9e0;
+}
+
+.nz-start__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 38px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff !important;
+  background: linear-gradient(90deg, #451bde, #7b2ff7, #1b2a6b, #7b2ff7, #451bde) !important;
+  background-size: 300% 100% !important;
+  animation: nz-flow 6s linear infinite;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 10px 30px rgba(123, 47, 247, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nz-start__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(123, 47, 247, 0.6);
+}
+
+.nz-start__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nz-start__features li {
+  position: relative;
+  padding-left: 30px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #d4d4ec;
+}
+
+.nz-start__features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7b2ff7, #451bde);
+  box-shadow: 0 2px 8px rgba(123, 47, 247, 0.5);
+}
+
+.nz-start__features li::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Media gallery on the right */
+.nz-start__gallery {
+  flex: 4 1 1400px;
+  min-width: 0;
+}
+
+.nz-gallery__title {
+  font-family: 'Orbitron', 'Russo One', Montserrat, Arial, sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.nz-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.nz-gallery__item {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(123, 47, 247, 0.35);
+  box-shadow: 0 8px 22px rgba(69, 27, 222, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nz-gallery__item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 30px rgba(123, 47, 247, 0.5);
+}
+
+@media (max-width: 1100px) {
+  .nz-start { flex-wrap: wrap; }
+  .nz-start__gallery { flex: 1 1 100%; }
+}
+
+@media (max-width: 820px) {
+  .nz-start { flex-direction: column; gap: 24px; }
+}
+
+/* Same subtle flowing gradient border for "Шаг 2" card */
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-2[_ngcontent-agg-crmp-webfront-c2356339609] {
+  position: relative;
+  background: linear-gradient(160deg, rgba(27, 42, 107, 0.45), rgba(15, 16, 32, 0.92)) !important;
+  border: none !important;
+  border-radius: 20px;
+  padding: 28px 26px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-2[_ngcontent-agg-crmp-webfront-c2356339609]::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(123, 47, 247, 0.7), rgba(69, 27, 222, 0.7), rgba(123, 47, 247, 0.7));
+  background-size: 300% 300%;
+  animation: nz-border-flow 9s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Same border for the companion image */
+[_nghost-agg-crmp-webfront-c2356339609] .img[_ngcontent-agg-crmp-webfront-c2356339609] {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .img[_ngcontent-agg-crmp-webfront-c2356339609]::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(123, 47, 247, 0.7), rgba(69, 27, 222, 0.7), rgba(123, 47, 247, 0.7));
+  background-size: 300% 300%;
+  animation: nz-border-flow 9s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+/* Hide the "Как начать играть" text box entirely */
+.index-preview-text-box {
+  display: none !important;
+}
+
+/* ===== Download block: elegant glass card in site theme ===== */
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-1[_ngcontent-agg-crmp-webfront-c2356339609] {
+  position: relative;
+  transform: translateX(-300px);
+  background: linear-gradient(160deg, rgba(27, 42, 107, 0.45), rgba(15, 16, 32, 0.92)) !important;
+  border: none !important;
+  border-radius: 20px;
+  padding: 30px 28px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+}
+
+/* Subtle flowing gradient border around the card */
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-1[_ngcontent-agg-crmp-webfront-c2356339609]::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(123, 47, 247, 0.7), rgba(69, 27, 222, 0.7), rgba(123, 47, 247, 0.7));
+  background-size: 300% 300%;
+  animation: nz-border-flow 9s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Decorative flowing divider under the button */
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-1 .step-footer[_ngcontent-agg-crmp-webfront-c2356339609] {
+  position: relative;
+}
+
+@keyframes nz-border-flow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Top flowing tagline inside the card */
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-1 .step-number[_ngcontent-agg-crmp-webfront-c2356339609]::before {
+  content: "NEMAZING ONLINE \2022  БЕСПЛАТНО  \2022  V2.4  \2022  4.2 \0413\0411";
+  display: block;
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #b9b6e0;
+  background: none;
+  -webkit-text-fill-color: #b9b6e0;
+}
+
+/* Version/size pill at the top-right corner */
+[_nghost-agg-crmp-webfront-c2356339609] .step.step-1[_ngcontent-agg-crmp-webfront-c2356339609]::after {
+  content: "V2.4  \2022  4.2 \0413\0411";
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #dcdaf5;
+  background: rgba(123, 47, 247, 0.22);
+  border: 1px solid rgba(123, 47, 247, 0.4);
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .for-windows-and-safely[_ngcontent-agg-crmp-webfront-c2356339609] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .for-windows[_ngcontent-agg-crmp-webfront-c2356339609],
+[_nghost-agg-crmp-webfront-c2356339609] .safely[_ngcontent-agg-crmp-webfront-c2356339609] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #eceaff !important;
+  font-size: 13px;
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .for-windows--text[_ngcontent-agg-crmp-webfront-c2356339609],
+[_nghost-agg-crmp-webfront-c2356339609] .safely--text[_ngcontent-agg-crmp-webfront-c2356339609],
+[_nghost-agg-crmp-webfront-c2356339609] .safely span,
+.for-windows--text,
+.safely--text,
+.safely span {
+  color: #eceaff !important;
+  background: transparent !important;
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .privacy[_ngcontent-agg-crmp-webfront-c2356339609] {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #a9a9c8 !important;
+  text-align: center;
+  line-height: 1.5;
+  background: transparent !important;
+}
+
+[_nghost-agg-crmp-webfront-c2356339609] .privacy a,
+.privacy a {
+  color: #b18cff !important;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(177, 140, 255, 0.5);
+  background: transparent !important;
+}
+
+/* Stats block: transparent background so the character art shows through */
+.blur-white[_nghost-agg-crmp-webfront-c2311583540] {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Remove the solid white background-image of the monitoring banner host */
+[_nghost-agg-crmp-webfront-c2311583540] {
+  background-image: none !important;
+  background: transparent !important;
+}
+
+[_nghost-agg-crmp-webfront-c2311583540],
+.section,
+.section__inner,
+.section__value,
+.section__label,
+.section__hint {
+  background-color: transparent !important;
+  color: #e8e8f0 !important;
+}
+
+.section__value,
+.section__label,
+.section__hint {
+  color: #e8e8f0 !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Shift the left info column (buttons + stats) left by 400px,
+   while the character artwork stays in place */
+.index-preview-section.info {
+  transform: translate(-400px, 300px);
+  position: relative;
+  z-index: 3;
+}
+
+/* Drop the "Что за игра?" (what-is-the-game) button 200px lower */
+.index-event__about {
+  margin-top: 519px !important;
+}
+
+/* blend the monitoring banner with the page, keep it off the artwork */
+.index-preview-monitoring {
+  position: relative;
+  z-index: 2;
+}
+
+.index-preview-monitoring .section {
+  padding: 4px 10px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ===== System requirements popup (orange, slide-in) ===== */
+.nz-start__btn--sysreq {
+  display: inline-block;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff8a00, #ff5e00);
+  border: 1px solid rgba(255, 140, 0, 0.7);
+  box-shadow: 0 8px 24px rgba(255, 94, 0, 0.35);
+}
+
+.nz-start__btn--sysreq:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+.nz-sysreq-toggle:checked ~ .nz-sysreq-modal {
+  display: flex;
+  animation: nz-sysreq-fade 0.25s ease;
+}
+
+.nz-sysreq-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 6, 0, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.nz-sysreq-modal__box {
+  position: relative;
+  width: min(900px, 92vw);
+  max-height: 88vh;
+  overflow: auto;
+  padding: 28px 30px 32px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #2a1500, #1a0d00);
+  border: 2px solid #ff7a00;
+  box-shadow: 0 20px 60px rgba(255, 94, 0, 0.4);
+  animation: nz-sysreq-slide 0.32s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+@keyframes nz-sysreq-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes nz-sysreq-slide {
+  from { opacity: 0; transform: translateY(-40px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.nz-sysreq-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  background: rgba(255, 122, 0, 0.2);
+  border: 1px solid rgba(255, 122, 0, 0.6);
+  transition: background 0.2s ease;
+}
+
+.nz-sysreq-modal__close:hover {
+  background: rgba(255, 122, 0, 0.45);
+}
+
+.nz-sysreq-modal__title {
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ff8a00;
+  text-shadow: 0 2px 14px rgba(255, 94, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.nz-sysreq-modal__table {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nz-sysreq-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.nz-sysreq-row--head .nz-sysreq-cell {
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #ffb347;
+  background: rgba(255, 122, 0, 0.12);
+}
+
+.nz-sysreq-cell {
+  padding: 12px 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #f3ead9;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 122, 0, 0.18);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.nz-sysreq-cell--cat {
+  text-align: left;
+  font-weight: 700;
+  color: #ffd9a8;
+  background: rgba(255, 122, 0, 0.08);
+}
+
+.nz-sysreq-img {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #ffb347;
+  border: 1px dashed rgba(255, 122, 0, 0.5);
+  border-radius: 8px;
+  background: rgba(255, 122, 0, 0.06);
+}
+
+@media (max-width: 640px) {
+  .nz-sysreq-row {
+    grid-template-columns: 1fr;
+  }
+  .nz-sysreq-row--head {
+    display: none;
+  }
+  .nz-sysreq-cell--cat::before {
+    content: '';
+  }
+}
+
+/* ===== Rules page (Правила игры на серверах) ===== */
+.rules-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+  color: #ffffff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.rules-content p {
+  margin: 18px 0 8px;
+  color: #fff;
+}
+
+.rules-content p > b {
+  display: inline-block;
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #ffb347;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* section headers with individual icons */
+.nz-rule-sec {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 34px 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 122, 0, 0.25);
+}
+
+.nz-rule-ic {
+  font-size: 30px;
+  line-height: 1;
+  filter: drop-shadow(0 3px 8px rgba(255, 122, 0, 0.4));
+}
+
+.nz-rule-h {
+  margin: 0;
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffb347;
+  text-shadow: 0 2px 14px rgba(255, 94, 0, 0.3);
+}
+
+/* intro callout */
+.rules-content blockquote {
+  margin: 16px 0;
+  padding: 16px 20px;
+  border-left: 4px solid #ff7a00;
+  border-radius: 0 12px 12px 0;
+  background: linear-gradient(90deg, rgba(255, 122, 0, 0.12), rgba(255, 122, 0, 0.02));
+  color: #ffffff;
+  font-style: normal;
+}
+
+.rules-content blockquote b {
+  color: #fff;
+}
+
+/* styled tables */
+.rules-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0 26px;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.rules-content th {
+  background: linear-gradient(135deg, #451bde, #7b2ff7 60%, #ff7a00);
+  color: #fff;
+  text-align: left;
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 14px 14px;
+  border: none;
+}
+
+.rules-content td {
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  vertical-align: top;
+  color: #ffffff;
+}
+
+.rules-content td[align="center"] {
+  text-align: center;
+}
+
+.rules-content tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.rules-content tbody tr:hover td {
+  background: rgba(255, 122, 0, 0.07);
+}
+
+/* very important info (punishment) -> red */
+.rules-content td:nth-child(2) {
+  color: #ff5b5b;
+  font-weight: 600;
+}
+
+/* less important info (reason tag) -> yellow */
+.rules-content td:nth-child(3),
+.rules-content td[rowspan] {
+  text-align: center;
+  font-family: 'Russo One', 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #ffd54a;
+  white-space: nowrap;
+}
+
+.rules-content b {
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .rules-content table,
+  .rules-content tbody,
+  .rules-content tr,
+  .rules-content th,
+  .rules-content td {
+    display: block;
+    width: 100% !important;
+  }
+  .rules-content th {
+    display: none;
+  }
+  .rules-content tr {
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 122, 0, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .rules-content td {
+    border: none;
+    border-bottom: 1px solid rgba(255, 122, 0, 0.12);
+  }
+}
