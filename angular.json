@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "amazing-clone:build:production"
+              "buildTarget": "nemazing-clone:build:production"
             },
             "development": {
-              "buildTarget": "amazing-clone:build:development"
+              "buildTarget": "nemazing-clone:build:development"
             }
           },
           "defaultConfiguration": "development"
