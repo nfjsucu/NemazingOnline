@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home.component';
+import { StorePageComponent } from './pages/store.component';
 import { StartPageComponent } from './pages/start.component';
 import { PromoVideoPageComponent } from './pages/promo-video.component';
 import { TournamentsPageComponent } from './pages/tournaments.component';
@@ -25,6 +26,7 @@ import { MySettingsPageComponent } from './pages/my-settings.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'store', component: StorePageComponent },
   { path: 'start', component: StartPageComponent },
   { path: 'promo-video', component: PromoVideoPageComponent },
   { path: 'tournaments', component: TournamentsPageComponent },

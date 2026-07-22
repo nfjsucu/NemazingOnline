@@ -8,4 +8,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   schemas: [NO_ERRORS_SCHEMA]
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  openPromo() {
+    window.open('https://youtube.com', '_blank');
+  }
+}
