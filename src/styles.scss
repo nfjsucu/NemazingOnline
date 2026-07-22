@@ -764,6 +764,17 @@ table { border-collapse: collapse; }
   z-index: 3;
 }
 
+/* Hide old preview sections (replaced by new hero above) */
+.index-preview-section,
+.index-preview-char,
+.index-preview-monitoring,
+.index-preview-wrap,
+.index-event-about-wrapper,
+.index-event__about,
+.app-active-button {
+  display: none !important;
+}
+
 /* --- Stats block (transparent) --- */
 .blur-white[_nghost-agg-crmp-webfront-c2311583540] {
   background: transparent !important;
