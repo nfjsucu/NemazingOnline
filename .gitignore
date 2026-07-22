@@ -43,6 +43,8 @@ Thumbs.db
 
 # Local logs and temp snapshots
 serve.log
+serve.all
+serve.err
 snapshot-index.html
 ngcmd-*.log
 
