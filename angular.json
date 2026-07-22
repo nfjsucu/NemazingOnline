@@ -33,6 +33,7 @@
             ],
             "styles": [
               "public/assets/styles-original.css",
+              "node_modules/aos/dist/aos.css",
               "public/assets/component-styles.css",
               "src/styles.scss"
             ],

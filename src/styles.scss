@@ -771,7 +771,11 @@ table { border-collapse: collapse; }
 .index-preview-wrap,
 .index-event-about-wrapper,
 .index-event__about,
-.app-active-button {
+.app-active-button,
+app-footer,
+#page-footer,
+.fixed-size > .footer,
+.footer {
   display: none !important;
 }
 
@@ -1069,6 +1073,36 @@ table { border-collapse: collapse; }
 }
 
 /* --- Responsive --- */
+/* Mobile menu (checkbox hack) */
+.nz-mobile-toggle { display: none; }
+
+.nz-nav__hamburger { display: none; cursor: pointer; z-index: 10; margin-top: 8px; }
+
+.nz-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #181818;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 30px 20px;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.nz-mobile-toggle:checked ~ .nz-mobile-menu { display: flex; }
+
+@keyframes nz-mobile-slide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nz-mobile-toggle:checked ~ .nz-mobile-menu { animation: nz-mobile-slide 0.25s ease; }
+
 @media (max-width: 767px) {
   .nz-nav__links { display: none; }
   .nz-nav__hamburger { display: block; }
